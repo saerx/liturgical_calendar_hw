@@ -2,8 +2,7 @@ import FeastItem from './FeastItem'
 import './DateItem.css'
 const DateItem = ({date, season, season_week, celebrations, weekday}) => {
     if (!celebrations) return null;
-    
-    // Make this into seperate component
+
     const feastDays = celebrations.map((feast, index) => {
         return <FeastItem 
                 title={feast.title}

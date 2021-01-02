@@ -1,6 +1,7 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import DateList from './components/DateList'
+import MonthChanger from './components/MonthChanger'
 
 function App() {
 
@@ -19,15 +20,13 @@ function App() {
     fetchDates();
 }, []);
 
-  // console.log(dates)
+  // console.log(dates) 
 
   return (
       <>
         <h1> Liturgical Calendar</h1>
-        <div>
-          {/* filter form goes here */}
-          {/* Figure out router */}
-        </div>
+        {/* Figure out router */}
+        <MonthChanger />
         <DateList dates={dates}/>
       </>
 
