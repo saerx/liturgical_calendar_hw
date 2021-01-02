@@ -1,11 +1,13 @@
-import {useEffect, useState} from 'react';
+import {useState} from 'react';
 
 const MonthChanger = () => {
 
-    const [month, setMonth] = useState("");
+    const [month, setMonth] = useState("2021-01");
 
     const handleMonthChange = (event) => {
         setMonth(event.target.value)
+        console.log(month.getMonth());
+
     };
 
     return (
@@ -20,6 +22,7 @@ const MonthChanger = () => {
          </div>
 
     )
+
 };
 
 

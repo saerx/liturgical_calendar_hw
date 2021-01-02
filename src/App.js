@@ -6,10 +6,12 @@ import MonthChanger from './components/MonthChanger'
 function App() {
 
   const [dates, setDates] = useState([]);
+  const [month, setMonth] = useState("1")
+  const [year, setYear] = useState("2021")
 
   const fetchDates = () => {
     console.log("getting saints...")
-    const url = `http://calapi.inadiutorium.cz/api/v0/en/calendars/default/2021/1`
+    const url = `http://calapi.inadiutorium.cz/api/v0/en/calendars/default/${year}/${month}`
 
     fetch(url)
         .then(res => res.json())
@@ -20,7 +22,10 @@ function App() {
     fetchDates();
 }, []);
 
-  // console.log(dates) 
+
+  const changeMonthYear = (monthYear) => {
+
+  }
 
   return (
       <>
