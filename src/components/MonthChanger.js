@@ -7,25 +7,25 @@ const MonthChanger = ({handleDateChange}) => {
 
     const handleMonthChange = (event) => {
         setMonth(event.target.value);
+        handleDateChange(month);
     };
 
-    const handleFormSubmit = (event) => {
-        event.preventDefault();
-        handleDateChange(month);
-    }
+    // const handleFormSubmit = (event) => {
+    //     event.preventDefault();
+    //     
+    // }
         
 
 
     return (
         <div id="date-changer">
-        <form onSubmit={handleFormSubmit}>
+    
             <input type="month" 
                 placeholder="2021-01" 
                 value={month}
                 onChange={handleMonthChange}
                 />
-            <input type="submit" value="Change Month"/>
-        </form>
+       
          </div>
 
     )
