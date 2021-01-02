@@ -8,7 +8,7 @@ const FeastItem = ({title, colour, rank, rank_num}) => {
     return (
         <li id='feast-item' style={feastColor} >
             <h5 >{title}</h5>
-            <p>Rank: {rank_num}, {rank}</p>
+            <h6>Rank: {rank_num}, {rank}</h6>
         </li>
     )
 };
