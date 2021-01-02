@@ -5,8 +5,6 @@ const DateList = ({dates}) => {
 
     if (!dates) return null;
 
-    console.log(dates)
-
     const dateNodes = dates.map((date, index) => {
 
         return (

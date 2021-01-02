@@ -20,18 +20,22 @@ function App() {
 
   useEffect(() => {
     fetchDates();
-}, []);
+});
 
 
   const changeMonthYear = (monthYear) => {
-
+    const monthYearObject = new Date(monthYear);
+    const updatedMonth = monthYearObject.getMonth() + 1
+    const updatedYear = monthYearObject.getFullYear()
+    setMonth(updatedMonth);
+    setYear(updatedYear);
   }
 
   return (
       <>
         <h1> Liturgical Calendar</h1>
         {/* Figure out router */}
-        <MonthChanger />
+        <MonthChanger handleDateChange={changeMonthYear}/>
         <DateList dates={dates}/>
       </>
 
