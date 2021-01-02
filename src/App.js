@@ -24,7 +24,7 @@ function App() {
 
   useEffect(() => {
     fetchDates();
-});
+}, [month, year]);
 
 
   const changeMonthYear = (monthYear) => {
@@ -40,8 +40,7 @@ function App() {
         <h1> Liturgical Calendar</h1>
         {/* Figure out router */}
         <MonthChanger handleDateChange={changeMonthYear}
-                      currentMonth={currentMonth}
-                      currentYear={currentYear}/>
+                      />
         <DateList dates={dates}/>
       </>
 

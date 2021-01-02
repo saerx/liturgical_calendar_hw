@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 
 const MonthChanger = ({handleDateChange}) => {
 
@@ -7,15 +7,11 @@ const MonthChanger = ({handleDateChange}) => {
 
     const handleMonthChange = (event) => {
         setMonth(event.target.value);
-        handleDateChange(month);
     };
 
-    // const handleFormSubmit = (event) => {
-    //     event.preventDefault();
-    //     
-    // }
-        
-
+    useEffect(() =>{
+        handleDateChange(month);
+    }, [month])
 
     return (
         <div id="date-changer">
