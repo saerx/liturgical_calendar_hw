@@ -1,0 +1,18 @@
+h3 {
+    text-align: center;
+}
+
+h4 {
+    text-align: center;
+}
+
+#date-item {
+    list-style-position: inside;
+    border: 1px solid black
+}
+
+#feast-item {
+    align-content: center;
+    list-style-position: inside;
+    
+}

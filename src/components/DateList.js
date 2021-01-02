@@ -1,4 +1,5 @@
-import DateItem from './DateItem'
+import DateItem from './DateItem';
+import './DateList.css';
 
 const DateList = ({dates}) => {
 
@@ -21,8 +22,8 @@ const DateList = ({dates}) => {
     });
 
     return (
-        <section id='date-list'>
-            <ul>
+        <section >
+            <ul id='date-list'>
                 {dateNodes}
             </ul>
         </section>
