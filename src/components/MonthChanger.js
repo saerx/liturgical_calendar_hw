@@ -2,6 +2,7 @@ import {useState} from 'react';
 
 const MonthChanger = ({handleDateChange}) => {
 
+    
     const [month, setMonth] = useState("2021-01");
 
     const handleMonthChange = (event) => {
@@ -23,9 +24,7 @@ const MonthChanger = ({handleDateChange}) => {
                 value={month}
                 onChange={handleMonthChange}
                 />
-            <input type="submit" 
-                   
-            />
+            <input type="submit" value="Change Month"/>
         </form>
          </div>
 

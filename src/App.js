@@ -5,9 +5,13 @@ import MonthChanger from './components/MonthChanger'
 
 function App() {
 
+  const currentDate = new Date();
+  const currentMonth = currentDate.getMonth() + 1;
+  const currentYear = currentDate.getFullYear();
+
   const [dates, setDates] = useState([]);
-  const [month, setMonth] = useState("1")
-  const [year, setYear] = useState("2021")
+  const [month, setMonth] = useState(currentMonth)
+  const [year, setYear] = useState(currentYear)
 
   const fetchDates = () => {
     console.log("getting saints...")
@@ -35,7 +39,9 @@ function App() {
       <>
         <h1> Liturgical Calendar</h1>
         {/* Figure out router */}
-        <MonthChanger handleDateChange={changeMonthYear}/>
+        <MonthChanger handleDateChange={changeMonthYear}
+                      currentMonth={currentMonth}
+                      currentYear={currentYear}/>
         <DateList dates={dates}/>
       </>
 
