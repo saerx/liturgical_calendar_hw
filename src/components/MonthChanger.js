@@ -3,22 +3,22 @@ import {useEffect, useState} from 'react';
 const MonthChanger = ({handleDateChange}) => {
 
     
-    const [month, setMonth] = useState("2021-01");
+    const [monthYear, setMonthYear] = useState("2021-01");
 
     const handleMonthChange = (event) => {
-        setMonth(event.target.value);
+        setMonthYear(event.target.value);
     };
 
     useEffect(() =>{
-        handleDateChange(month);
-    }, [month])
+        handleDateChange(monthYear);
+    }, [monthYear])
 
     return (
         <div id="date-changer">
     
             <input type="month" 
                 placeholder="2021-01" 
-                value={month}
+                value={monthYear}
                 onChange={handleMonthChange}
                 />
        
