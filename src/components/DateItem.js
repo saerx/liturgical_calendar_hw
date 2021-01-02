@@ -13,8 +13,13 @@ const DateItem = ({date, season, season_week, celebrations, weekday}) => {
                 />
     })
 
+    const dateColor = {
+        backgroundColor: celebrations[0].colour,
+    };
+
+
     return (
-        <div id='date-item'>
+        <div id='date-item' style={dateColor}>
             <li>
                 <h3>{date}</h3>
                 <h4>{season} (Week {season_week})</h4>
