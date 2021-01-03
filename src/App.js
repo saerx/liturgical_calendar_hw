@@ -1,5 +1,5 @@
 
-import {BrowseRouter as Router, Route, Switch} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 import './App.css';
 import LitCalContainer from './containers/LitCalContainer'
@@ -8,9 +8,11 @@ import LitCalContainer from './containers/LitCalContainer'
 function App() {
 
     return (
-      <>
-        <LitCalContainer />
-      </>
+      <Router>
+        <>
+          <Route path="/" component = {LitCalContainer}/>
+        </>
+      </Router>
     )
   }
 export default App;
