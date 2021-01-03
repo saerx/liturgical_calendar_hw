@@ -82,7 +82,6 @@ useEffect(() => {
 
   return (
       <>
-        <h1> Liturgical Calendar</h1>
         <p>{yeezy["quote"]} — Pope Francis</p>
         <br/>
         {/* Figure out router */}
