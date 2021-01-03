@@ -1,5 +1,5 @@
 #nav-bar-link {
     width: fit-content;
     margin: auto;
-    
+    justify-content: center;
 }
