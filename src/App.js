@@ -31,6 +31,7 @@ function App() {
 }, [month, year]);
 
 
+  // Provides a function to take user's change of month and make a new call to the API
   const changeMonthYear = (monthYear) => {
     const monthYearObject = new Date(monthYear);
     const updatedMonth = monthYearObject.getMonth() + 1
@@ -39,19 +40,29 @@ function App() {
     setYear(updatedYear);
   }
 
+
+  // Provides a function to take user's change of filter and make alter a state property in the parent component, triggering a useEffect
   const filterByRank = (filterRank) => {
     setParentFilterRank(filterRank)
   }
 
+  // Uses secondary effects to make alterations to the filteredDates state whenever the user's choice of month or rank filter changes
   useEffect(() => {
     let newFilteredDates = []
     if (parentFilterRank === "0") {
       newFilteredDates = dates;
     } else {
-      newFilteredDates = dates.filter(date => Math.trunc(date.celebrations[0].rank_num) == parentFilterRank)
+      // Filters all dates where "some" feast in the celebration array has a rank equal to the parentFilterRank
+      newFilteredDates = dates.filter((date) => {
+        return date.celebrations.some((celebration) => {
+          // Removes numbers after decimal in "rank_num" and sets loose equals to parentFilterRank which is a string
+          return Math.trunc(celebration.rank_num) == parentFilterRank
+        })
+      })
     }
     setFilteredDates(newFilteredDates)
   }, [parentFilterRank, dates])
+
 
   return (
       <>

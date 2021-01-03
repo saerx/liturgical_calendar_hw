@@ -3,6 +3,8 @@ import './DateItem.css'
 const DateItem = ({date, season, season_week, celebrations, weekday}) => {
     if (!celebrations) return null;
 
+
+    // Renders correct colour for seasons
     let dateColor = null;
 
     if (celebrations[0].title === "Pentecost") {
@@ -24,6 +26,7 @@ const DateItem = ({date, season, season_week, celebrations, weekday}) => {
     }
 
 
+    // Capitalises seasons, renders season of "Ordinary Time" in standard way, gives special position to Pentecost
     let capitalisedSeason = null;
 
     if (celebrations[0].title === "Pentecost") {
@@ -34,13 +37,14 @@ const DateItem = ({date, season, season_week, celebrations, weekday}) => {
         capitalisedSeason = season.charAt(0).toUpperCase() + season.slice(1)
     };
 
-    // const capitalisedWeekday = weekday.charAt(0).toUpperCase() + weekday.slice(1)
 
+    // Renders date in more legible way
     const options = {  weekday: 'short', month: 'short', day: 'numeric'}
 
     const readableDate = new Date(date).toLocaleDateString('en-GB', options)
 
 
+    // Destructures elements for FeastItem component
     const feastDays = celebrations.map((feast, index) => {
         return <FeastItem 
                 title={feast.title}
