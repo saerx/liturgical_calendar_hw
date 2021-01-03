@@ -4,6 +4,7 @@ import DateList from './components/DateList'
 import MonthChanger from './components/MonthChanger'
 import FilterChanger from './components/FilterChanger';
 
+
 function App() {
 
   const currentDate = new Date();
@@ -13,6 +14,8 @@ function App() {
   const [dates, setDates] = useState([]);
   const [month, setMonth] = useState(currentMonth)
   const [year, setYear] = useState(currentYear)
+  const [parentFilterRank, setParentFilterRank] = useState("0")
+  const [filteredDates, setFilteredDates] = useState([])
 
   const fetchDates = () => {
     console.log("getting saints...")
@@ -37,14 +40,18 @@ function App() {
   }
 
   const filterByRank = (filterRank) => {
-    let filteredDates = []
-    if (filterRank === "0") {
-      filteredDates = dates
-    } else {
-      filteredDates = dates.filter(date => date.celebrations[0].rank_num.toFixed(0) == filterRank)
-    }
-    setDates(filteredDates)
+    setParentFilterRank(filterRank)
   }
+
+  useEffect(() => {
+    let newFilteredDates = []
+    if (parentFilterRank === "0") {
+      newFilteredDates = dates;
+    } else {
+      newFilteredDates = dates.filter(date => Math.trunc(date.celebrations[0].rank_num) == parentFilterRank)
+    }
+    setFilteredDates(newFilteredDates)
+  }, [parentFilterRank, dates])
 
   return (
       <>
@@ -52,7 +59,7 @@ function App() {
         {/* Figure out router */}
         <MonthChanger handleDateChange={changeMonthYear}/>
         <FilterChanger filterByRank={filterByRank}/>
-        <DateList dates={dates}/>
+        <DateList dates={filteredDates}/>
       </>
 
 
