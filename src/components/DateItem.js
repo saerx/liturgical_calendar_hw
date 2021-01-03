@@ -9,28 +9,32 @@ const DateItem = ({date, season, season_week, celebrations, weekday}) => {
     if (season === "christmas" || season === "easter") {
         dateColor = {
             color: "white",
-        } 
+        } ;
     } else if (season === "ordinary") {
         dateColor = {
             color: "green",
-        } 
+        } ;
     } else if (season === "lent" || season === "advent") {
         dateColor = {
             color: "violet",
-        }
+        };
     }
 
-    let capitalisedSeason = null
+    let capitalisedSeason = null;
 
     if (season === "ordinary") {
         capitalisedSeason = "Ordinary Time"
     } else {
         capitalisedSeason = season.charAt(0).toUpperCase() + season.slice(1)
-    }
+    };
 
-    let capitalisedWeekday = null
+    const capitalisedWeekday = weekday.charAt(0).toUpperCase() + weekday.slice(1)
 
-    capitalisedWeekday = weekday.charAt(0).toUpperCase() + weekday.slice(1)
+    const options = { year: 'numeric', month: 'long', day: 'numeric'}
+
+
+    const readableDate = new Date(date).toLocaleDateString('en-GB', options)
+
 
     const feastDays = celebrations.map((feast, index) => {
         return <FeastItem 
@@ -50,7 +54,7 @@ const DateItem = ({date, season, season_week, celebrations, weekday}) => {
     return (
         <div id='date-item' style={dateColor}>
             <li>
-                <h3>{date}</h3>
+                <h3>{readableDate}</h3>
                 <h4>{capitalisedSeason} </h4>
                 <h5 id="weekday">{capitalisedWeekday}, Week {season_week}</h5>
                 <ul>{feastDays}</ul>
