@@ -17,6 +17,8 @@ function App() {
   const [parentFilterRank, setParentFilterRank] = useState("0")
   const [filteredDates, setFilteredDates] = useState([])
 
+  const [yeezy, setYeezy] = useState("")
+
   const fetchDates = () => {
     console.log("getting saints...")
     const url = `http://calapi.inadiutorium.cz/api/v0/en/calendars/default/${year}/${month}`
@@ -29,6 +31,17 @@ function App() {
   useEffect(() => {
     fetchDates();
 }, [month, year]);
+
+const fetchKanye = () => {
+  console.log("getting Yeezy...")
+  fetch(`https://api.kanye.rest`)
+    .then(res => res.json())
+    .then(data => setYeezy(data))
+};
+
+useEffect(() => {
+  fetchKanye();
+}, [])
 
 
   // Provides a function to take user's change of month and make a new call to the API
@@ -67,6 +80,7 @@ function App() {
   return (
       <>
         <h1> Liturgical Calendar</h1>
+        <p>{yeezy["quote"]}</p>
         {/* Figure out router */}
         <MonthChanger handleDateChange={changeMonthYear}/>
         <FilterChanger filterByRank={filterByRank}/>

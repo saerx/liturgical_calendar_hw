@@ -17,6 +17,13 @@ h1 {
   color: white
 }
 
+p {
+  width: fit-content;
+  margin: auto;
+  font-family: fantasy;
+  color: white
+}
+
 .input {
   width: fit-content;
   margin: auto;
