@@ -1,12 +1,15 @@
 import FeastItem from './FeastItem'
 import './DateItem.css'
-import { findRenderedComponentWithType } from 'react-dom/test-utils';
 const DateItem = ({date, season, season_week, celebrations, weekday}) => {
     if (!celebrations) return null;
 
     let dateColor = null;
 
-    if (season === "christmas" || season === "easter") {
+    if (celebrations[0].title === "Pentecost") {
+        dateColor = {
+            color: "red"
+        } 
+    } else if (season === "christmas" || season === "easter") {
         dateColor = {
             color: "white",
         } ;
@@ -20,18 +23,20 @@ const DateItem = ({date, season, season_week, celebrations, weekday}) => {
         };
     }
 
+
     let capitalisedSeason = null;
 
-    if (season === "ordinary") {
+    if (celebrations[0].title === "Pentecost") {
+        capitalisedSeason = "Pentecost";
+    } else if (season === "ordinary") {
         capitalisedSeason = "Ordinary Time"
     } else {
         capitalisedSeason = season.charAt(0).toUpperCase() + season.slice(1)
     };
 
-    const capitalisedWeekday = weekday.charAt(0).toUpperCase() + weekday.slice(1)
+    // const capitalisedWeekday = weekday.charAt(0).toUpperCase() + weekday.slice(1)
 
-    const options = { year: 'numeric', month: 'long', day: 'numeric'}
-
+    const options = {  weekday: 'short', month: 'short', day: 'numeric'}
 
     const readableDate = new Date(date).toLocaleDateString('en-GB', options)
 
@@ -46,17 +51,13 @@ const DateItem = ({date, season, season_week, celebrations, weekday}) => {
                 />
     })
 
-    
-
-    
-
 
     return (
         <div id='date-item' style={dateColor}>
             <li>
                 <h3>{readableDate}</h3>
                 <h4>{capitalisedSeason} </h4>
-                <h5 id="weekday">{capitalisedWeekday}, Week {season_week}</h5>
+                <h5 id="week">Week {season_week}</h5>
                 <ul>{feastDays}</ul>
             </li>
         </div>
