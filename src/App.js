@@ -31,11 +31,7 @@ function App() {
         .then(data => setDates(data))
   };
 
-  useEffect(() => {
-    fetchDates();
-}, [month, year]);
-
-// Uses kanye.rest api made by Andrew Jazbec https://kanye.rest/
+  // Uses kanye.rest api made by Andrew Jazbec https://kanye.rest/
 const fetchKanye = () => {
   console.log("getting Yeezy...")
   fetch(`https://api.kanye.rest`)
@@ -43,9 +39,15 @@ const fetchKanye = () => {
     .then(data => setYeezy(data))
 };
 
-useEffect(() => {
-  fetchKanye();
-}, [dates])
+
+  // Realise I should use a promise all but don't understand it yet
+  useEffect(() => {
+    fetchDates();
+    fetchKanye();
+}, [month, year]);
+
+
+
 
 
   // Provides a function to take user's change of month and make a new call to the API
