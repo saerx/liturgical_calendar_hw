@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 import './App.css';
 import LitCalContainer from './containers/LitCalContainer'
-import Charts from './components/Charts'
+import BiblePage from './components/BiblePage'
 import NavBar from './components/NavBar'
 
 
@@ -14,8 +14,9 @@ function App() {
         <>
           <h1> Liturgical Calendar</h1>
           <NavBar/>
+          <br/>
           <Route exact path="/" component = {LitCalContainer}/>
-          <Route path="/charts" component = {Charts}/>
+          <Route path="/nicebible" component = {BiblePage}/>
         </>
       </Router>
     )

@@ -30,21 +30,29 @@ function LitCalContainer() {
         .then(data => setDates(data))
   };
 
-  useEffect(() => {
-    fetchDates();
-}, [month, year]);
 
 // Uses kanye.rest api made by Andrew Jazbec https://kanye.rest/
-const fetchKanye = () => {
-  console.log("getting Yeezy...")
-  fetch(`https://api.kanye.rest`)
-    .then(res => res.json())
-    .then(data => setYeezy(data))
-};
 
-useEffect(() => {
-  fetchKanye();
-}, [dates])
+// I know I should be using promise all but I don't understand how.
+
+  const fetchKanye = () => {
+    console.log("getting Yeezy...")
+    fetch(`https://api.kanye.rest`)
+      .then(res => res.json())
+      .then(data => setYeezy(data))
+  };
+
+  useEffect(() => {
+    fetchDates();
+    fetchKanye();
+}, [month, year]);
+
+
+
+
+// useEffect(() => {
+//   fetchKanye();
+// }, [dates])
 
 
   // Provides a function to take user's change of month and make a new call to the API
