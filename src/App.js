@@ -19,6 +19,7 @@ function App() {
 
   const [yeezy, setYeezy] = useState("")
 
+  // Uses Liturgical Calendar API by Jakub Pavlík http://calapi.inadiutorium.cz/about
   const fetchDates = () => {
     console.log("getting saints...")
     const url = `http://calapi.inadiutorium.cz/api/v0/en/calendars/default/${year}/${month}`
@@ -32,6 +33,7 @@ function App() {
     fetchDates();
 }, [month, year]);
 
+// Uses kanye.rest api made by Andrew Jazbec https://kanye.rest/
 const fetchKanye = () => {
   console.log("getting Yeezy...")
   fetch(`https://api.kanye.rest`)
