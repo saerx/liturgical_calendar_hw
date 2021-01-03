@@ -2,6 +2,7 @@ import './App.css';
 import { useState, useEffect } from 'react';
 import DateList from './components/DateList'
 import MonthChanger from './components/MonthChanger'
+import FilterChanger from './components/FilterChanger';
 
 function App() {
 
@@ -35,12 +36,22 @@ function App() {
     setYear(updatedYear);
   }
 
+  const filterByRank = (filterRank) => {
+    let filteredDates = []
+    if (filterRank === "0") {
+      filteredDates = dates
+    } else {
+      filteredDates = dates.filter(date => date.celebrations[0].rank_num.toFixed(0) == filterRank)
+    }
+    setDates(filteredDates)
+  }
+
   return (
       <>
         <h1> Liturgical Calendar</h1>
         {/* Figure out router */}
-        <MonthChanger handleDateChange={changeMonthYear}
-                      />
+        <MonthChanger handleDateChange={changeMonthYear}/>
+        <FilterChanger filterByRank={filterByRank}/>
         <DateList dates={dates}/>
       </>
 

@@ -14,13 +14,13 @@ const MonthChanger = ({handleDateChange}) => {
     }, [monthYear])
 
     return (
-        <div id="date-changer">
+        <div className="input">
     
             <input type="month" 
                 placeholder="2021-01" 
                 value={monthYear}
                 onChange={handleMonthChange}
-                />
+            />
        
          </div>
 
