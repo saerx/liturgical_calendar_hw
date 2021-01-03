@@ -21,7 +21,10 @@ p {
   width: fit-content;
   margin: auto;
   font-family: fantasy;
-  color: white
+  color: white;
+  font-size: 0.9em;
+  padding-left: 15%;
+  padding-right: 15%;
 }
 
 .input {

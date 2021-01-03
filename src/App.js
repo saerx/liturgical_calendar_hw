@@ -43,7 +43,7 @@ const fetchKanye = () => {
 
 useEffect(() => {
   fetchKanye();
-}, [])
+}, [dates])
 
 
   // Provides a function to take user's change of month and make a new call to the API
@@ -82,7 +82,8 @@ useEffect(() => {
   return (
       <>
         <h1> Liturgical Calendar</h1>
-        <p>{yeezy["quote"]}</p>
+        <p>{yeezy["quote"]} — Pope Francis</p>
+        <br></br>
         {/* Figure out router */}
         <MonthChanger handleDateChange={changeMonthYear}/>
         <FilterChanger filterByRank={filterByRank}/>
