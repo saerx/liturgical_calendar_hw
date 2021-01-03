@@ -12,6 +12,9 @@ const NavBar = () => {
                     <li>
                         <Link to="/nicebible">A Great Pic of the Bible</Link>
                     </li>
+                    <li>
+                        <Link to="/charts">Charts</Link>
+                    </li>
                 </ul>
             </>
         )

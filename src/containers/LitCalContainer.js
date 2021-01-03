@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import DateList from '../components/DateList'
 import MonthChanger from '../components/MonthChanger'
 import FilterChanger from '../components/FilterChanger';
+import ChartPage from '../components/ChartPage'
 
 
 function LitCalContainer() {
@@ -97,6 +98,8 @@ function LitCalContainer() {
         <br/>
         <FilterChanger filterByRank={filterByRank}/>
         <DateList dates={filteredDates}/>
+        <ChartPage dates={filteredDates}/>
+
       </>
 
 
