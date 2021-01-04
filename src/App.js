@@ -1,6 +1,6 @@
 import './App.css';
 import { useState, useEffect } from 'react';
-// import {BrowseRouter as Router, Route, Switch} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 import DateList from './components/DateList'
 import MonthChanger from './components/MonthChanger'
@@ -83,17 +83,32 @@ useEffect(() => {
 
 
   return (
-      <>
-        <h1> Liturgical Calendar</h1>
-        <p>{yeezy["quote"]} — Pope Francis</p>
-        <br></br>
-        {/* Figure out router */}
-        <MonthChanger handleDateChange={changeMonthYear}/>
-        <FilterChanger filterByRank={filterByRank}/>
-        <ChartPage dates={filteredDates}/>
-        <DateList dates={filteredDates}/>
+
+    <Router>
+    <>
+      <h1> Liturgical Calendar</h1>
+      <p>{yeezy["quote"]} — Pope Francis</p>
+        <br/>
+      {/* <NavBar/> */}
+      <MonthChanger handleDateChange={changeMonthYear}/>
+      <FilterChanger filterByRank={filterByRank}/>
+      <Route exact path="/"
+               render={()=><DateList dates={filteredDates}/>}/>
+      <Route path="/charts" 
+               render={()=><ChartPage dates={filteredDates}/>} />
+    </>
+  </Router>
+
+      // <>
+      //   <h1> Liturgical Calendar</h1>
+      //   <p>{yeezy["quote"]} — Pope Francis</p>
+      //   <br></br>
+      //   {/* Figure out router */}
+       
+      //   <ChartPage dates={filteredDates}/>
+      //   <DateList dates={filteredDates}/>
         
-      </>
+      // </>
 
 
   );
