@@ -32,3 +32,8 @@ p {
   margin: auto;
 
 }
+
+#chart {
+  width: fit-content;
+  margin: auto;
+}
