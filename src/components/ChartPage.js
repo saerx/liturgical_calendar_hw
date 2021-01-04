@@ -2,14 +2,33 @@ import Chart from "react-google-charts"
 
 const ChartPage = ({dates}) => {
 
-        // console.log(dates)
-    const greenFeasts = dates.filter((date) => {
-        return date.celebrations.filter((celebration) => {
-            return celebration.colour === "green"
+    if (!dates) return null;
+
+    const colourDaysPerMonth = ((dates, colour) => {
+
+    
+
+    const colourDays = dates.filter((date) => {
+        return date.celebrations.some((celebration) => {
+            return celebration.colour === (colour)
         })
     })
 
-    // console.log(greenFeasts);
+    const colourFeasts = colourDays.map((date) => {
+        let celebrationsList = date.celebrations.filter((celebration) => {
+            return celebration.colour === (colour)
+        })
+        return celebrationsList
+    })
+
+    return colourFeasts.length ;
+
+    })
+
+    console.log(colourDaysPerMonth(dates, "red"))
+    console.log(colourDaysPerMonth(dates, "green"))
+    console.log(colourDaysPerMonth(dates, "white"))
+    console.log(colourDaysPerMonth(dates, "violet"))
 
     return (
         <div id="chart">
