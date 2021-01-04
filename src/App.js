@@ -93,6 +93,7 @@ const fetchKanye = () => {
       <p>{yeezy["quote"]} — Pope Francis</p>
         <br/>
       <NavBar/>
+      <br/>
       <MonthChanger handleDateChange={changeMonthYear}/>
       <FilterChanger filterByRank={filterByRank}/>
       <Route exact path="/"
