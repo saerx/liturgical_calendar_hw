@@ -46,7 +46,7 @@ const ChartPage = ({dates}) => {
     
   ]}
   options={{
-    title: 'Feast Day Colours',
+    title: 'Feast Day Colours for Month',
     backgroundColor: 'Black',
     color: 'White',
     legend: {textStyle: {color: "white"}},
