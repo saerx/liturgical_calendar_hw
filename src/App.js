@@ -6,6 +6,7 @@ import DateList from './components/DateList'
 import MonthChanger from './components/MonthChanger'
 import FilterChanger from './components/FilterChanger';
 import ChartPage from './components/ChartPage'
+import NavBar from './components/NavBar'
 
 
 function App() {
@@ -89,7 +90,7 @@ useEffect(() => {
       <h1> Liturgical Calendar</h1>
       <p>{yeezy["quote"]} — Pope Francis</p>
         <br/>
-      {/* <NavBar/> */}
+      <NavBar/>
       <MonthChanger handleDateChange={changeMonthYear}/>
       <FilterChanger filterByRank={filterByRank}/>
       <Route exact path="/"
