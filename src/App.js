@@ -7,6 +7,7 @@ import MonthChanger from './components/MonthChanger'
 import FilterChanger from './components/FilterChanger';
 import ChartPage from './components/ChartPage'
 import NavBar from './components/NavBar'
+import ErrorPage from './components/ErrorPage'
 
 
 function App() {
@@ -94,13 +95,18 @@ const fetchKanye = () => {
         <br/>
       <NavBar/>
       <br/>
-      <MonthChanger handleDateChange={changeMonthYear}/>
-      <FilterChanger filterByRank={filterByRank}/>
-      <Route exact path="/"
-               render={()=><DateList dates={filteredDates}/>}/>
-      <Route path="/charts" 
-               render={()=><ChartPage dates={filteredDates}/>} />
-    </>
+        <MonthChanger handleDateChange={changeMonthYear}/>
+        <br/>
+        <FilterChanger filterByRank={filterByRank}/>
+        <br/>
+          <Switch>
+            <Route exact path="/"
+                  render={()=><DateList dates={filteredDates}/>}/>
+            <Route path="/charts" 
+                  render={()=><ChartPage dates={filteredDates}/>} />
+            <Route component={ErrorPage} />
+          </Switch>
+      </>
   </Router>
 
 
