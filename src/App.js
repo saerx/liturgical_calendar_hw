@@ -103,17 +103,6 @@ const fetchKanye = () => {
     </>
   </Router>
 
-      // <>
-      //   <h1> Liturgical Calendar</h1>
-      //   <p>{yeezy["quote"]} — Pope Francis</p>
-      //   <br></br>
-      //   {/* Figure out router */}
-       
-      //   <ChartPage dates={filteredDates}/>
-      //   <DateList dates={filteredDates}/>
-        
-      // </>
-
 
   );
 }
