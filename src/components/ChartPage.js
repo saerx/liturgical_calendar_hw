@@ -25,10 +25,10 @@ const ChartPage = ({dates}) => {
 
     })
 
-    console.log(colourDaysPerMonth(dates, "red"))
-    console.log(colourDaysPerMonth(dates, "green"))
-    console.log(colourDaysPerMonth(dates, "white"))
-    console.log(colourDaysPerMonth(dates, "violet"))
+    const redFeasts = colourDaysPerMonth(dates, "red")
+    const greenFeasts = colourDaysPerMonth(dates, "green")
+    const whiteFeasts = colourDaysPerMonth(dates, "white")
+    const violetFeasts = colourDaysPerMonth(dates, "violet")
 
     return (
         <div id="chart">
@@ -39,10 +39,10 @@ const ChartPage = ({dates}) => {
   loader={<div>Loading Chart</div>}
   data={[
     ['Colour', 'Feast Days'],
-    ['Green', 11],
-    ['White', 2],
-    ['Red', 2],
-    ['Violet', 2],
+    ['Green', greenFeasts],
+    ['White', whiteFeasts],
+    ['Red', redFeasts],
+    ['Violet', violetFeasts],
     
   ]}
   options={{
@@ -51,7 +51,8 @@ const ChartPage = ({dates}) => {
     color: 'White',
     legend: {textStyle: {color: "white"}},
     titleTextStyle: {color: "white"},
-    colors: ['green', 'white', 'red', 'violet']
+    colors: ['green', 'white', 'red', 'violet'],
+    pieSliceTextStyle: {color: "black"}
   }}
   rootProps={{ 'data-testid': '1' }}
 />
