@@ -89,7 +89,7 @@ const fetchKanye = () => {
   return (
 
     <Router>
-    <>
+  
       <h1> Liturgical Calendar</h1>
       <p>{yeezy["quote"]} — Pope Francis</p>
         <br/>
@@ -106,7 +106,7 @@ const fetchKanye = () => {
                   render={()=><ChartPage dates={filteredDates}/>} />
             <Route component={ErrorPage} />
           </Switch>
-      </>
+   
   </Router>
 
 
