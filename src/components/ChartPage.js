@@ -39,10 +39,10 @@ const ChartPage = ({dates}) => {
   loader={<div>Loading Chart</div>}
   data={[
     ['Colour', 'Feast Days'],
-    ['Green', greenFeasts],
-    ['White', whiteFeasts],
-    ['Red', redFeasts],
-    ['Violet', violetFeasts],
+    ['Green – ' + greenFeasts , greenFeasts],
+    ['White – ' + whiteFeasts , whiteFeasts],
+    ['Red – ' + redFeasts , redFeasts],
+    ['Violet – ' + violetFeasts , violetFeasts],
     
   ]}
   options={{
