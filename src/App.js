@@ -24,29 +24,39 @@ function App() {
 
   const [yeezy, setYeezy] = useState("")
 
-  // Uses Liturgical Calendar API by Jakub Pavlík http://calapi.inadiutorium.cz/about
-  const fetchDates = () => {
-    console.log("getting saints...")
-    const url = `http://calapi.inadiutorium.cz/api/v0/en/calendars/default/${year}/${month}`
+//   // Uses Liturgical Calendar API by Jakub Pavlík http://calapi.inadiutorium.cz/about
+//   const fetchDates = () => {
+//     console.log("getting saints...")
+//     const url = `http://calapi.inadiutorium.cz/api/v0/en/calendars/default/${year}/${month}`
 
-    fetch(url)
-        .then(res => res.json())
-        .then(data => setDates(data))
-  };
+//    fetch(url)
+//         .then(res => res.json())
+//         .then(data => setDates(data))
+//   };
 
-  // Uses kanye.rest api made by Andrew Jazbec https://kanye.rest/
-const fetchKanye = () => {
-  console.log("getting Yeezy...")
-  fetch(`https://api.kanye.rest`)
-    .then(res => res.json())
-    .then(data => setYeezy(data))
-};
+//   // Uses kanye.rest api made by Andrew Jazbec https://kanye.rest/
+// const fetchKanye = () => {
+//   console.log("getting Yeezy...")
+//   fetch(`https://api.kanye.rest`)
+//     .then(res => res.json())
+//     .then(data => setYeezy(data))
+// };
 
 
   // Realise I should use a promise all but don't understand it yet
+   // Realise I should use a promise all but don't understand it yet
   useEffect(() => {
-    fetchDates();
-    fetchKanye();
+    // fetchDates();
+    // fetchKanye();
+    const urls = [`https://api.kanye.rest`, `http://calapi.inadiutorium.cz/api/v0/en/calendars/default/${year}/${month}`];
+    const promises = urls.map(url => {
+      return fetch(url).then(res => res.json());
+    });
+    Promise.all(promises).then(data => {
+      console.log('END OF PROMISE ALL', data);
+      setYeezy(data[0]);
+      setDates(data[1]);
+    });
 }, [month, year]);
 
 
