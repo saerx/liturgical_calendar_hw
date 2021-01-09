@@ -43,7 +43,6 @@ function App() {
 // };
 
 
-  // Realise I should use a promise all but don't understand it yet
    // Realise I should use a promise all but don't understand it yet
   useEffect(() => {
     // fetchDates();
